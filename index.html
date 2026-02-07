@@ -1,33 +1,356 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>My First Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jessop Web Design | Get A Website</title>
 
-	<style>
-	body {
-	background-color: black;
-	color: lime;
-	font-family: Arial;
-	}
+  <style>
+    :root{
+      --bg:#f4f6f8;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --brand:#0c2a3d;
+      --brand2:#12405c;
+      --border:#e2e8f0;
+      --shadow: 0 10px 25px rgba(2,6,23,.08);
+      --radius: 14px;
+    }
 
-	h1 {
-	text-align: center;
-	font-size: 48px;
-	text-shadow: 0 0 10px orange;
-	}
-	</style>
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header{
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color:#fff;
+      padding: 42px 0;
+    }
+    header .wrap{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .brand h1{
+      margin:0;
+      font-size: 34px;
+      letter-spacing:.2px;
+    }
+    .brand p{
+      margin:6px 0 0;
+      opacity:.9;
+    }
+
+    .pill{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      opacity:.95;
+    }
+
+    main{
+      padding: 26px 0 50px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    @media (min-width: 900px){
+      .grid{
+        grid-template-columns: 1fr 1.2fr;
+        align-items:start;
+      }
+    }
+
+    .card{
+      background:var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size: 20px;
+    }
+    .muted{ color:var(--muted); }
+
+    .info-row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 10px 0;
+      border-top: 1px solid var(--border);
+    }
+    .info-row:first-of-type{ border-top:none; padding-top:0; }
+
+    .info-label{
+      min-width: 88px;
+      font-weight:700;
+    }
+
+    a{ color: var(--brand2); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    form{
+      display:grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .two{
+      display:grid;
+      gap:12px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 560px){
+      .two{ grid-template-columns: 1fr 1fr; }
+    }
+
+    label{
+      font-weight:700;
+      font-size: 14px;
+      display:block;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 16px;
+      outline:none;
+      background:#fff;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(18,64,92,.55);
+      box-shadow: 0 0 0 4px rgba(18,64,92,.12);
+    }
+
+    textarea{ resize: vertical; min-height: 120px; }
+
+    .small{
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 4px;
+    }
+
+    button{
+      border:none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor:pointer;
+      background: var(--brand);
+      color:#fff;
+      font-weight: 700;
+    }
+    button:hover{ background: var(--brand2); }
+
+    .ghost{
+      background: transparent;
+      color: var(--brand2);
+      border: 1px solid var(--border);
+      font-weight:700;
+    }
+    .ghost:hover{
+      background:#f8fafc;
+    }
+
+    .note{
+      border-left: 4px solid rgba(12,42,61,.35);
+      padding: 10px 12px;
+      background: #f8fafc;
+      border-radius: 12px;
+      margin-top: 12px;
+    }
+
+    footer{
+      padding: 22px 0 34px;
+      color: var(--muted);
+      text-align:center;
+      font-size: 14px;
+    }
+
+    .status{
+      display:none;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background:#ecfeff;
+      border: 1px solid #cffafe;
+      color:#164e63;
+      font-weight:700;
+    }
+    .status.show{ display:block; }
+  </style>
 </head>
 
 <body>
-	<h1>Nighthawk Is Building His Future.</h1>
+  <header>
+    <div class="wrap">
+      <div class="brand">
+        <h1>Kenan Jessop</h1>
+        <p>Websites for small businesses — fast, clean, mobile-friendly.</p>
+      </div>
 
-	<p>This is my first HTML page.</p>
-	<h2>My Goals</h2>
-	<ul>
-	<li>Learn coding</li>
-	<li>Make remote money</li>
-	<li>Live near the mountains</li>
-	</ul>
+      <div class="pill">
+        <span>📍 West Virginia</span>
+        <span>•</span>
+        <a style="color:#fff; text-decoration:underline;" href="mailto:kjessopbtc@gmail.com">kjessopbtc@gmail.com</a>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    <div class="wrap">
+      <div class="grid">
+
+        <!-- LEFT: CONTACT / DETAILS -->
+        <section class="card">
+          <h2>Contact</h2>
+          <p class="muted">Use the form to request a website. I’ll reply within 24–48 hours.</p>
+
+          <div class="info-row">
+            <div class="info-label">Email</div>
+            <div><a href="mailto:kjessopbtc@gmail.com">kjessopbtc@gmail.com</a></div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">Location</div>
+            <div>West Virginia, USA</div>
+          </div>
+
+          <div class="info-row">
+            <div class="info-label">Services</div>
+            <div class="muted">
+              One-page sites • Business sites (3–5 pages) • Simple redesigns
+            </div>
+          </div>
+
+          <div class="note">
+            <p class="small" style="margin:0;">
+              Want to talk first? Email me with “Website Build” in the subject.
+            </p>
+          </div>
+        </section>
+
+        <!-- RIGHT: FORM -->
+        <section class="card">
+          <h2>Request a Website</h2>
+          <p class="small">This form is ready. Next step is making it actually send (2 minutes).</p>
+
+          <!-- NOTE: action gets added in Step 2 -->
+          <form id="requestForm" method="POST">
+            <div class="two">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+
+            <div class="two">
+              <div>
+                <label for="type">What do you need?</label>
+                <select id="type" name="type" required>
+                  <option value="">Select one</option>
+                  <option>One-page landing page</option>
+                  <option>Business website (3–5 pages)</option>
+                  <option>Redesign / cleanup</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="budget">Budget</label>
+                <select id="budget" name="budget">
+                  <option value="">Select one</option>
+                  <option>$100–$300</option>
+                  <option>$300–$600</option>
+                  <option>$600–$1200</option>
+                  <option>$1200+</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="details">Project details</label>
+              <textarea id="details" name="details" placeholder="What should the site do? Any examples you like? Pages needed?" required></textarea>
+            </div>
+
+            <!-- bot-trap (helps reduce spam) -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div class="actions">
+              <button type="submit">Send Request</button>
+              <button type="reset" class="ghost">Clear</button>
+            </div>
+
+            <div id="status" class="status">Sent. I’ll email you back soon.</div>
+          </form>
+
+          <div class="note">
+            <p class="small" style="margin:0;">
+              Right now the button will refresh the page. In the next step we’ll make it send to your email.
+            </p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Kenan Jessop • Built with HTML + CSS
+  </footer>
+
+  <script>
+    // year auto-updates
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // fake success message for now (until we hook up real sending)
+    const form = document.getElementById("requestForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault(); // stops refresh
+      status.classList.add("show");
+      form.reset();
+      setTimeout(() => status.classList.remove("show"), 4000);
+    });
+  </script>
 </body>
 </html>
