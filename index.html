@@ -2,348 +2,676 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jessop Web Design | Get A Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jessop Web Design | Modern Websites for Small Business</title>
+  <meta name="description" content="Jessop Web Design — modern, fast, mobile-friendly websites for small businesses across the United States." />
 
   <style>
     :root{
-      --bg:#f4f6f8;
-      --card:#ffffff;
-      --text:#0f172a;
-      --muted:#475569;
-      --brand:#0c2a3d;
-      --brand2:#12405c;
-      --border:#e2e8f0;
-      --shadow: 0 10px 25px rgba(2,6,23,.08);
-      --radius: 14px;
+      /* Apple-ish light theme */
+      --bg: #f6f7fb;
+      --surface: rgba(255,255,255,.72);
+      --surface2: rgba(255,255,255,.92);
+      --text: #0b1220;
+      --muted: rgba(11,18,32,.62);
+      --border: rgba(11,18,32,.10);
+      --shadow: 0 20px 60px rgba(11,18,32,.12);
+      --shadow2: 0 12px 30px rgba(11,18,32,.10);
+
+      /* accents */
+      --green:#22c55e;
+      --blue:#38bdf8;
+      --deep:#1d4ed8;
+
+      --r: 22px;
+      --r2: 16px;
+      --max: 1120px;
     }
 
-    *{ box-sizing:border-box; }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: Arial, sans-serif;
-      background:var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
       color:var(--text);
-      line-height:1.5;
+      background:
+        radial-gradient(900px 520px at 12% 10%, rgba(34,197,94,.16), transparent 55%),
+        radial-gradient(900px 520px at 88% 12%, rgba(56,189,248,.16), transparent 55%),
+        radial-gradient(1100px 650px at 55% 105%, rgba(29,78,216,.10), transparent 60%),
+        var(--bg);
+      line-height:1.55;
     }
 
-    .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 24px;
-    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px}
 
+    /* Top bar */
     header{
-      background: linear-gradient(135deg, var(--brand), var(--brand2));
-      color:#fff;
-      padding: 42px 0;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:10px 0 20px;
     }
-    header .wrap{
-      display:flex;
-      gap:22px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
+    .brand{
+      display:flex; align-items:center; gap:12px;
     }
-    .brand h1{
-      margin:0;
-      font-size: 34px;
-      letter-spacing:.2px;
+    .mark{
+      width:44px; height:44px; border-radius:14px;
+      background:
+        radial-gradient(12px 12px at 30% 28%, rgba(255,255,255,.85), transparent 60%),
+        linear-gradient(135deg, rgba(34,197,94,.85), rgba(56,189,248,.85));
+      box-shadow: 0 10px 24px rgba(34,197,94,.20);
+      border:1px solid rgba(255,255,255,.6);
     }
-    .brand p{
-      margin:6px 0 0;
-      opacity:.9;
-    }
+    .brandTitle{display:flex; flex-direction:column; gap:2px}
+    .brandTitle b{font-size:16px; letter-spacing:.2px}
+    .brandTitle span{font-size:12px; color:var(--muted)}
 
-    .pill{
-      display:inline-flex;
-      gap:10px;
-      align-items:center;
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.2);
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      opacity:.95;
+    .trust{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+      padding:10px 12px;
+      border-radius:999px;
+      background: var(--surface);
+      border:1px solid var(--border);
+      box-shadow: var(--shadow2);
+      backdrop-filter: blur(12px);
     }
-
-    main{
-      padding: 26px 0 50px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-    @media (min-width: 900px){
-      .grid{
-        grid-template-columns: 1fr 1.2fr;
-        align-items:start;
-      }
-    }
-
-    .card{
-      background:var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
-    }
-
-    .card h2{
-      margin:0 0 10px;
-      font-size: 20px;
-    }
-    .muted{ color:var(--muted); }
-
-    .info-row{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      padding: 10px 0;
-      border-top: 1px solid var(--border);
-    }
-    .info-row:first-of-type{ border-top:none; padding-top:0; }
-
-    .info-label{
-      min-width: 88px;
+    .tItem{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; color:var(--muted);
       font-weight:700;
+      white-space:nowrap;
+    }
+    .sep{opacity:.35}
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background: var(--green);
+      box-shadow: 0 0 16px rgba(34,197,94,.35);
+    }
+    .chipIcon{
+      width:18px;height:18px;border-radius:999px;
+      display:inline-flex; align-items:center; justify-content:center;
+      background: rgba(11,18,32,.06);
+      border:1px solid rgba(11,18,32,.10);
+      font-size:12px;
+    }
+    .emailLink{
+      color: var(--text);
+      font-weight:900;
+      text-decoration:none;
+    }
+    .emailLink:hover{text-decoration:underline}
+    @media (max-width: 860px){
+      .sep{display:none}
+      header{flex-direction:column; align-items:flex-start}
+      .trust{justify-content:flex-start}
+      .tItem{white-space:normal}
     }
 
-    a{ color: var(--brand2); text-decoration:none; }
-    a:hover{ text-decoration:underline; }
-
-    form{
+    /* Hero */
+    .hero{
+      border-radius: var(--r);
+      background: var(--surface);
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(900px 420px at 25% 10%, rgba(34,197,94,.20), transparent 55%),
+        radial-gradient(900px 420px at 80% 0%, rgba(56,189,248,.22), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .heroInner{
+      position:relative;
+      padding: 26px;
       display:grid;
-      gap: 12px;
-      margin-top: 10px;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .heroInner{grid-template-columns:1fr}
     }
 
-    .two{
-      display:grid;
-      gap:12px;
-      grid-template-columns: 1fr;
+    .headline{
+      margin:0;
+      font-size:48px;
+      line-height:1.03;
+      letter-spacing:-.8px;
     }
-    @media (min-width: 560px){
-      .two{ grid-template-columns: 1fr 1fr; }
+    @media (max-width: 520px){ .headline{font-size:34px} }
+
+    .sub{
+      margin:12px 0 0;
+      color:var(--muted);
+      font-size:15px;
+      max-width: 60ch;
     }
+
+    .highlightRow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:16px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.70);
+      border:1px solid rgba(11,18,32,.10);
+      box-shadow: 0 8px 18px rgba(11,18,32,.06);
+      font-size:13px;
+      font-weight:800;
+      color: rgba(11,18,32,.78);
+    }
+    .pill i{
+      width:10px;height:10px;border-radius:999px;
+      background: var(--blue);
+      box-shadow: 0 0 14px rgba(56,189,248,.35);
+      display:inline-block;
+    }
+    .pill.green i{background: var(--green); box-shadow: 0 0 14px rgba(34,197,94,.35)}
+    .pill.deep i{background: var(--deep); box-shadow: 0 0 14px rgba(29,78,216,.30)}
+
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .btn{
+      border:none;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-weight:950;
+      cursor:pointer;
+      display:inline-flex; align-items:center; gap:10px;
+      transition: transform .08s ease, opacity .08s ease;
+      user-select:none;
+      font-size:14px;
+      letter-spacing:.2px;
+      text-decoration:none;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      color:white;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      box-shadow: 0 16px 40px rgba(34,197,94,.18);
+    }
+    .btn.ghost{
+      background: rgba(255,255,255,.70);
+      border:1px solid rgba(11,18,32,.12);
+      color: var(--text);
+    }
+
+    /* Right-side form card */
+    .panel{
+      border-radius: var(--r2);
+      background: rgba(255,255,255,.86);
+      border:1px solid rgba(11,18,32,.10);
+      box-shadow: 0 18px 50px rgba(11,18,32,.10);
+      overflow:hidden;
+    }
+    .panelHead{
+      padding:16px 16px 10px;
+      border-bottom:1px solid rgba(11,18,32,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+    }
+    .panelHead h2{margin:0; font-size:16px; letter-spacing:.2px}
+    .panelHead p{margin:6px 0 0; font-size:12px; color:var(--muted)}
+    .panelBody{padding:16px}
 
     label{
-      font-weight:700;
-      font-size: 14px;
+      font-weight:900;
+      font-size:12px;
+      color: rgba(11,18,32,.62);
       display:block;
-      margin-bottom: 6px;
+      margin: 10px 0 6px;
     }
-
     input, select, textarea{
       width:100%;
-      padding: 12px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      font-size: 16px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(11,18,32,.12);
+      background: rgba(255,255,255,.92);
+      color: var(--text);
+      font-size:14px;
       outline:none;
-      background:#fff;
     }
     input:focus, select:focus, textarea:focus{
-      border-color: rgba(18,64,92,.55);
-      box-shadow: 0 0 0 4px rgba(18,64,92,.12);
+      border-color: rgba(56,189,248,.55);
+      box-shadow: 0 0 0 4px rgba(56,189,248,.16);
     }
+    textarea{min-height:110px; resize: vertical}
+    .two{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media (max-width: 520px){ .two{grid-template-columns:1fr} }
 
-    textarea{ resize: vertical; min-height: 120px; }
-
-    .small{
-      font-size: 13px;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-top: 4px;
-    }
-
-    button{
-      border:none;
-      border-radius: 12px;
-      padding: 12px 16px;
-      font-size: 16px;
-      cursor:pointer;
-      background: var(--brand);
-      color:#fff;
-      font-weight: 700;
-    }
-    button:hover{ background: var(--brand2); }
-
-    .ghost{
-      background: transparent;
-      color: var(--brand2);
-      border: 1px solid var(--border);
-      font-weight:700;
-    }
-    .ghost:hover{
-      background:#f8fafc;
-    }
-
-    .note{
-      border-left: 4px solid rgba(12,42,61,.35);
-      padding: 10px 12px;
-      background: #f8fafc;
-      border-radius: 12px;
+    .formFooter{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px; flex-wrap:wrap;
       margin-top: 12px;
     }
-
-    footer{
-      padding: 22px 0 34px;
-      color: var(--muted);
-      text-align:center;
-      font-size: 14px;
-    }
+    .fine{color:var(--muted); font-size:12px; margin:0}
 
     .status{
       display:none;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background:#ecfeff;
-      border: 1px solid #cffafe;
-      color:#164e63;
-      font-weight:700;
+      margin-top:12px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(11,18,32,.10);
+      background: rgba(255,255,255,.75);
+      font-size:13px;
+      font-weight:950;
     }
-    .status.show{ display:block; }
+    .status.ok{display:block; border-color:rgba(34,197,94,.35); color:#0b1220}
+    .status.err{display:block; border-color:rgba(239,68,68,.35); color:#0b1220}
+
+    /* Sections */
+    .section{
+      margin-top:26px;
+      border-radius: var(--r);
+      background: rgba(255,255,255,.70);
+      border:1px solid rgba(11,18,32,.10);
+      box-shadow: 0 16px 50px rgba(11,18,32,.08);
+      backdrop-filter: blur(12px);
+      overflow:hidden;
+    }
+    .sectionHeader{
+      padding:16px 18px;
+      border-bottom:1px solid rgba(11,18,32,.08);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+    }
+    .sectionHeader b{font-size:14px; letter-spacing:.25px}
+    .sectionHeader span{color:var(--muted); font-size:12px}
+
+    .sectionBody{padding:18px}
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 920px){ .grid3{grid-template-columns:1fr} }
+
+    .cardMini{
+      border-radius: 16px;
+      border:1px solid rgba(11,18,32,.10);
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 10px 26px rgba(11,18,32,.06);
+      padding:14px;
+    }
+    .cardMini b{display:block; margin-bottom:6px}
+    .cardMini p{margin:0; font-size:13px; color:var(--muted)}
+
+    /* Demo portfolio */
+    .portfolioGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){ .portfolioGrid{grid-template-columns:1fr} }
+
+    .demo{
+      position:relative;
+      overflow:hidden;
+      border-radius: 18px;
+      border:1px solid rgba(11,18,32,.10);
+      background: linear-gradient(135deg, rgba(34,197,94,.18), rgba(56,189,248,.18));
+      box-shadow: 0 14px 40px rgba(11,18,32,.08);
+      padding: 16px;
+    }
+    .demo::after{
+      content:"";
+      position:absolute;
+      inset:-40px;
+      background: radial-gradient(380px 220px at 20% 10%, rgba(255,255,255,.65), transparent 60%);
+      transform: rotate(-8deg);
+      opacity:.65;
+      pointer-events:none;
+    }
+    .demoInner{position:relative}
+    .demoTop{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      margin-bottom:10px;
+    }
+    .dots{
+      display:flex; gap:6px; align-items:center;
+    }
+    .dots span{
+      width:9px;height:9px;border-radius:999px;
+      background: rgba(11,18,32,.16);
+    }
+    .demoTag{
+      font-size:12px;
+      font-weight:950;
+      padding:6px 10px;
+      border-radius:999px;
+      background: rgba(255,255,255,.75);
+      border:1px solid rgba(11,18,32,.10);
+      color: rgba(11,18,32,.76);
+      white-space:nowrap;
+    }
+    .demo h3{margin:0 0 6px; font-size:16px}
+    .demo p{margin:0 0 12px; color:rgba(11,18,32,.68); font-size:13px}
+    .demoActions{display:flex; gap:10px; flex-wrap:wrap}
+    .miniBtn{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:13px;
+      font-weight:950;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(11,18,32,.12);
+      background: rgba(255,255,255,.78);
+      text-decoration:none;
+    }
+
+    /* FAQ */
+    .faq details{border-top:1px solid rgba(11,18,32,.08); padding:12px 0}
+    .faq details:first-child{border-top:none}
+    summary{
+      cursor:pointer;
+      font-weight:950;
+      color: rgba(11,18,32,.92);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .faq p{margin:8px 0 0; color:var(--muted); font-size:13px}
+
+    footer{
+      padding: 26px 0 40px;
+      color: var(--muted);
+      text-align:center;
+      font-size:12px;
+    }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="wrap">
+  <div class="wrap">
+
+    <header>
       <div class="brand">
-        <h1>Kenan Jessop</h1>
-        <p>Websites for small businesses — fast, clean, mobile-friendly.</p>
+        <div class="mark" aria-hidden="true"></div>
+        <div class="brandTitle">
+          <b>Jessop Web Design</b>
+          <span>Modern websites for small businesses.</span>
+        </div>
       </div>
 
-      <div class="pill">
-        <span>📍 West Virginia</span>
-        <span>•</span>
-        <a style="color:#fff; text-decoration:underline;" href="mailto:kjessopbtc@gmail.com">kjessopbtc@gmail.com</a>
+      <div class="trust">
+        <span class="tItem"><span class="dot"></span><span style="color:rgba(11,18,32,.86)">Taking new builds</span></span>
+        <span class="sep">•</span>
+        <span class="tItem"><span class="chipIcon">🌎</span>Serving clients across the U.S.</span>
+        <span class="sep">•</span>
+        <span class="tItem"><span class="chipIcon">⏱</span>Replies within <span style="color:rgba(11,18,32,.86)">24–48 hrs</span></span>
+        <span class="sep">•</span>
+        <span class="tItem"><span class="chipIcon">✉️</span><a class="emailLink" href="mailto:kjessopbtc@gmail.com">kjessopbtc@gmail.com</a></span>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main>
-    <div class="wrap">
-      <div class="grid">
+    <section class="hero" id="top">
+      <div class="heroInner">
+        <!-- LEFT -->
+        <div>
+          <h1 class="headline">A clean, modern website your customers will trust.</h1>
+          <p class="sub">
+            I build fast, mobile-friendly websites for small businesses across the United States.
+            Clear layout, modern design, and an easy way for people to contact you.
+          </p>
 
-        <!-- LEFT: CONTACT / DETAILS -->
-        <section class="card">
-          <h2>Contact</h2>
-          <p class="muted">Use the form to request a website. I’ll reply within 24–48 hours.</p>
-
-          <div class="info-row">
-            <div class="info-label">Email</div>
-            <div><a href="mailto:kjessopbtc@gmail.com">kjessopbtc@gmail.com</a></div>
+          <div class="highlightRow">
+            <div class="pill green"><i></i> Mobile-first layout</div>
+            <div class="pill"><i></i> Clean, modern design</div>
+            <div class="pill deep"><i></i> Fast load speed</div>
           </div>
 
-          <div class="info-row">
-            <div class="info-label">Location</div>
-            <div>West Virginia, USA</div>
+          <div class="ctaRow">
+            <a class="btn primary" href="#request">Request a website →</a>
+            <a class="btn ghost" href="mailto:kjessopbtc@gmail.com?subject=Website%20Build%20Request">Email me</a>
           </div>
 
-          <div class="info-row">
-            <div class="info-label">Services</div>
-            <div class="muted">
-              One-page sites • Business sites (3–5 pages) • Simple redesigns
-            </div>
+          <div style="margin-top:18px; color:var(--muted); font-size:12px;">
+            Want to talk first? Email me with <strong>“Website Build”</strong> in the subject.
+          </div>
+        </div>
+
+        <!-- RIGHT: FORM PANEL -->
+        <div class="panel" id="request">
+          <div class="panelHead">
+            <h2>Request a Website</h2>
+            <p>Send the basics. I’ll respond within 24–48 hours.</p>
           </div>
 
-          <div class="note">
-            <p class="small" style="margin:0;">
-              Want to talk first? Email me with “Website Build” in the subject.
-            </p>
-          </div>
-        </section>
-
-        <!-- RIGHT: FORM -->
-        <section class="card">
-          <h2>Request a Website</h2>
-          <p class="small">This form is ready. Next step is making it actually send (2 minutes).</p>
-
-          <!-- NOTE: action gets added in Step 2 -->
-          <form action="https://formspree.io/f/xojnqpoq" method="POST">
-            <div class="two">
-              <div>
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your name" required />
+          <div class="panelBody">
+            <form id="quoteForm" action="https://formspree.io/f/xojnpodq" method="POST">
+              <div class="two">
+                <div>
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" placeholder="Your name" required />
+                </div>
+                <div>
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" placeholder="you@email.com" required />
+                </div>
               </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="your@email.com" required />
-              </div>
-            </div>
 
-            <div class="two">
-              <div>
-                <label for="type">What do you need?</label>
-                <select id="type" name="type" required>
-                  <option value="">Select one</option>
-                  <option>One-page landing page</option>
-                  <option>Business website (3–5 pages)</option>
-                  <option>Redesign / cleanup</option>
-                  <option>Other</option>
-                </select>
+              <div class="two">
+                <div>
+                  <label for="type">Project type</label>
+                  <select id="type" name="project_type" required>
+                    <option value="">Select one</option>
+                    <option>One-page landing page</option>
+                    <option>Business website (3–5 pages)</option>
+                    <option>Redesign / cleanup</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="timeline">Timeline</label>
+                  <select id="timeline" name="timeline">
+                    <option value="">Select one</option>
+                    <option>ASAP</option>
+                    <option>1–2 weeks</option>
+                    <option>2–4 weeks</option>
+                    <option>Flexible</option>
+                  </select>
+                </div>
               </div>
-              <div>
-                <label for="budget">Budget</label>
-                <select id="budget" name="budget">
-                  <option value="">Select one</option>
-                  <option>$100–$300</option>
-                  <option>$300–$600</option>
-                  <option>$600–$1200</option>
-                  <option>$1200+</option>
-                </select>
-              </div>
-            </div>
 
-            <div>
               <label for="details">Project details</label>
-              <textarea id="details" name="details" placeholder="What should the site do? Any examples you like? Pages needed?" required></textarea>
-            </div>
+              <textarea id="details" name="details" placeholder="What should the site do? Any example sites you like? Pages needed?" required></textarea>
 
-            <!-- bot-trap (helps reduce spam) -->
-            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+              <!-- anti-bot -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-            <div class="actions">
-              <button type="submit">Send Request</button>
-              <button type="reset" class="ghost">Clear</button>
-            </div>
+              <button class="btn primary" type="submit" id="submitBtn" style="width:100%; justify-content:center;">
+                Send request →
+              </button>
 
-            <div id="status" class="status">Sent. I’ll email you back soon.</div>
-          </form>
-        </section>
+              <div class="formFooter">
+                <p class="fine">You’ll get a reply by email. No spam.</p>
+              </div>
 
+              <div id="formStatus" class="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </main>
+    </section>
 
-  <footer>
-    © <span id="year"></span> Kenan Jessop • Built with HTML + CSS
-  </footer>
+    <!-- PORTFOLIO / DEMOS -->
+    <section class="section" id="work">
+      <div class="sectionHeader">
+        <b>Demo work</b>
+        <span>Examples of the style I build</span>
+      </div>
+      <div class="sectionBody">
+        <div class="portfolioGrid">
+          <div class="demo">
+            <div class="demoInner">
+              <div class="demoTop">
+                <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="demoTag">Local service</div>
+              </div>
+              <h3>Mountain Home Services</h3>
+              <p>Clean homepage, service sections, reviews, and a simple contact form.</p>
+              <div class="demoActions">
+                <a class="miniBtn" href="#request">Request similar →</a>
+                <a class="miniBtn" href="mailto:kjessopbtc@gmail.com?subject=Website%20Build%20Request">Ask a question</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo">
+            <div class="demoInner">
+              <div class="demoTop">
+                <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="demoTag">Restaurant</div>
+              </div>
+              <h3>Modern Café</h3>
+              <p>Menu + hours + location, with a layout that looks great on phones.</p>
+              <div class="demoActions">
+                <a class="miniBtn" href="#request">Request similar →</a>
+                <a class="miniBtn" href="mailto:kjessopbtc@gmail.com?subject=Website%20Build%20Request">Ask a question</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo">
+            <div class="demoInner">
+              <div class="demoTop">
+                <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="demoTag">Creative</div>
+              </div>
+              <h3>Portfolio / Personal Brand</h3>
+              <p>Simple, modern portfolio layout with a strong call-to-action.</p>
+              <div class="demoActions">
+                <a class="miniBtn" href="#request">Request similar →</a>
+                <a class="miniBtn" href="mailto:kjessopbtc@gmail.com?subject=Website%20Build%20Request">Ask a question</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="sectionHeader">
+        <b>Services</b>
+        <span>Simple options that cover most businesses</span>
+      </div>
+      <div class="sectionBody">
+        <div class="grid3">
+          <div class="cardMini">
+            <b>Starter site</b>
+            <p>One-page landing + contact form. Great for getting online fast.</p>
+          </div>
+          <div class="cardMini">
+            <b>Business site</b>
+            <p>3–5 pages (Home, Services, About, Contact). Built for trust.</p>
+          </div>
+          <div class="cardMini">
+            <b>Redesign / cleanup</b>
+            <p>Modernize an old site, fix mobile layout, and improve clarity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+      <div class="sectionHeader">
+        <b>How it works</b>
+        <span>Clear steps, no confusion</span>
+      </div>
+      <div class="sectionBody">
+        <div class="grid3">
+          <div class="cardMini">
+            <b>1) Request</b>
+            <p>You send what you need using the form.</p>
+          </div>
+          <div class="cardMini">
+            <b>2) Quote</b>
+            <p>I reply with pricing + timeline + what I need from you.</p>
+          </div>
+          <div class="cardMini">
+            <b>3) Build & launch</b>
+            <p>I build, you approve, then we launch your site.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq" id="faq">
+      <div class="sectionHeader">
+        <b>FAQ</b>
+        <span>Quick answers</span>
+      </div>
+      <div class="sectionBody">
+        <details open>
+          <summary>Where do form messages go?</summary>
+          <p>Form submissions are handled by Formspree and delivered to my email: <strong>kjessopbtc@gmail.com</strong>.</p>
+        </details>
+        <details>
+          <summary>How long does a website take?</summary>
+          <p>It depends on the number of pages and how quickly you can send your info. Most builds move quickly once I have what I need.</p>
+        </details>
+        <details>
+          <summary>What do you need from me?</summary>
+          <p>Business name, services, any photos/logo, and any example sites you like. If you don’t have content yet, we can still start.</p>
+        </details>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Jessop Web Design • United States •
+      <a href="mailto:kjessopbtc@gmail.com?subject=Website%20Build%20Request">kjessopbtc@gmail.com</a>
+    </footer>
+
+  </div>
 
   <script>
-    // year auto-updates
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // fake success message for now (until we hook up real sending)
-    const form = document.getElementById("requestForm");
-    const status = document.getElementById("status");
+    const form = document.getElementById("quoteForm");
+    const statusEl = document.getElementById("formStatus");
+    const submitBtn = document.getElementById("submitBtn");
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault(); // stops refresh
-      status.classList.add("show");
-      form.reset();
-      setTimeout(() => status.classList.remove("show"), 4000);
+    function setStatus(type, msg){
+      statusEl.className = "status " + type;
+      statusEl.textContent = msg;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = ".85";
+      const oldText = submitBtn.textContent;
+      submitBtn.textContent = "Sending...";
+
+      try{
+        const formData = new FormData(form);
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { "Accept": "application/json" }
+        });
+
+        if(res.ok){
+          form.reset();
+          setStatus("ok", "Sent. I’ll reply within 24–48 hours.");
+        } else {
+          setStatus("err", "Couldn’t send. Please try again or email me directly.");
+        }
+      } catch (err){
+        setStatus("err", "Network error. Please try again or email me directly.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = "1";
+        submitBtn.textContent = oldText;
+      }
     });
   </script>
 </body>
