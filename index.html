@@ -492,7 +492,7 @@
           </p>
 
           <!-- Reliable normal submit (works great on GitHub Pages + mobile) -->
-          <form id="quoteform" action="https://formspree.io/f/xojnqpoq" method="POST">
+          <form id="quoteForm" action="https://formspree.io/f/xojnqpoq" method="POST">
             <input type="hidden" name="_subject" value="New website request (Jessop Web Design)" />
             <input type="hidden" name="_format" value="plain" />
             <input type="hidden" name="_next" value="https://jessopwebdesign.com/?sent=1#request" />
@@ -555,11 +555,13 @@
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
             <div class="formFooter">
-              <button class="btn primary" type="submit">Send request →</button>
+              <button class="btn primary" id="sendBtn" type="submit">Send request →</button>
               <p class="fine">You’ll get a reply by email. No spam.</p>
             </div>
 
             <div id="sentOk" class="notice ok">Sent. I’ll reply within 24–48 hours.</div>
+			<div id="sentErr" class="notice err">Couldn’t send. If it keeps failing, email me directly.</div>
+
           </form>
         </div>
       </div>
@@ -676,5 +678,43 @@
       // history.replaceState({}, "", window.location.pathname + "#request");
     }
   </script>
+
+  <script>
+const form = document.getElementById("quoteForm");
+const ok = document.getElementById("sentOk");
+const err = document.getElementById("sentErr");
+const btn = document.getElementById("sendBtn");
+
+form.addEventListener("submit", async function(e) {
+  e.preventDefault(); // stop page redirect
+
+  ok.style.display = "none";
+  err.style.display = "none";
+  btn.disabled = true;
+  btn.textContent = "Sending...";
+
+  try {
+    const res = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    });
+
+    if (!res.ok) throw new Error("Send failed");
+
+    ok.style.display = "block";
+    form.reset();
+
+    history.replaceState({}, "", "/#request");
+
+  } catch {
+    err.style.display = "block";
+  }
+
+  btn.disabled = false;
+  btn.textContent = "Send request →";
+});
+</script>
+
 </body>
 </html>
