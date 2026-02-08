@@ -1,32 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jessop Web Design | Modern Websites for Small Business</title>
-  <meta name="description" content="Jessop Web Design — modern, fast, mobile-friendly websites for small businesses across the United States." />
-	<link rel="icon" type="image/png" href="favicon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#070b14" />
+
+  <title>Jessop Web Design | Modern Websites for Small Businesses</title>
+  <meta name="description" content="Jessop Web Design builds clean, fast, mobile-friendly websites for service businesses and small brands—local or nationwide. Affordable pricing. Replies within 24–48 hours." />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Jessop Web Design" />
+  <meta property="og:description" content="Clean, fast websites for service businesses and small brands—local or nationwide. Affordable pricing. Replies within 24–48 hours." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jessopwebdesign.com" />
+
+  <!-- Favicon (keep favicon.png in repo root) -->
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <style>
     :root{
-      /* Apple-ish light theme */
-      --bg: #f6f7fb;
-      --surface: rgba(255,255,255,.72);
-      --surface2: rgba(255,255,255,.92);
-      --text: #0b1220;
-      --muted: rgba(11,18,32,.62);
-      --border: rgba(11,18,32,.10);
-      --shadow: 0 20px 60px rgba(11,18,32,.12);
-      --shadow2: 0 12px 30px rgba(11,18,32,.10);
+      --bg:#070b14;
+      --bg2:#0b1220;
+      --text:#eaf0ff;
+      --muted:#a9b4d0;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
 
       /* accents */
       --green:#22c55e;
       --blue:#38bdf8;
       --deep:#1d4ed8;
+      --warn:#fb7185;
 
-      --r: 22px;
-      --r2: 16px;
-      --max: 1120px;
+      --r:20px;
+      --r2:14px;
+      --max:1120px;
     }
 
     *{box-sizing:border-box}
@@ -35,150 +43,142 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
       color:var(--text);
-      background:
-        radial-gradient(900px 520px at 12% 10%, rgba(34,197,94,.16), transparent 55%),
-        radial-gradient(900px 520px at 88% 12%, rgba(56,189,248,.16), transparent 55%),
-        radial-gradient(1100px 650px at 55% 105%, rgba(29,78,216,.10), transparent 60%),
-        var(--bg);
       line-height:1.55;
+
+      /* No required images on the page background */
+      background:
+        radial-gradient(900px 600px at 14% 10%, rgba(34,197,94,.16), transparent 55%),
+        radial-gradient(900px 600px at 90% 18%, rgba(56,189,248,.16), transparent 55%),
+        radial-gradient(900px 650px at 60% 110%, rgba(29,78,216,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
     }
 
-    a{color:inherit}
+    a{color:inherit; text-decoration:none}
+    a:hover{text-decoration:underline}
+
     .wrap{max-width:var(--max); margin:0 auto; padding:22px}
 
-    /* Top bar */
+    /* Header */
     header{
       display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:10px 0 20px;
+      gap:14px; padding:10px 0 18px;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-    }
+    .brand{display:flex; align-items:center; gap:12px}
     .mark{
       width:44px; height:44px; border-radius:14px;
       background:
-        radial-gradient(12px 12px at 30% 28%, rgba(255,255,255,.85), transparent 60%),
-        linear-gradient(135deg, rgba(34,197,94,.85), rgba(56,189,248,.85));
-      box-shadow: 0 10px 24px rgba(34,197,94,.20);
-      border:1px solid rgba(255,255,255,.6);
+        radial-gradient(12px 12px at 30% 28%, rgba(255,255,255,.90), transparent 60%),
+        linear-gradient(135deg, rgba(34,197,94,.90), rgba(56,189,248,.90));
+      border:1px solid rgba(255,255,255,.55);
+      box-shadow: 0 14px 30px rgba(34,197,94,.18);
+      flex:0 0 auto;
     }
-    .brandTitle{display:flex; flex-direction:column; gap:2px}
-    .brandTitle b{font-size:16px; letter-spacing:.2px}
-    .brandTitle span{font-size:12px; color:var(--muted)}
+    .brandText{display:flex; flex-direction:column; gap:2px}
+    .brandText b{font-size:16px; letter-spacing:.2px}
+    .brandText span{font-size:12px; color:var(--muted)}
 
     .trust{
       display:flex; flex-wrap:wrap; gap:10px; align-items:center;
       padding:10px 12px;
       border-radius:999px;
-      background: var(--surface);
+      background: rgba(255,255,255,.05);
       border:1px solid var(--border);
-      box-shadow: var(--shadow2);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
     }
     .tItem{
       display:inline-flex; align-items:center; gap:8px;
       font-size:12px; color:var(--muted);
-      font-weight:700;
+      font-weight:900;
       white-space:nowrap;
     }
     .sep{opacity:.35}
     .dot{
       width:8px;height:8px;border-radius:999px;
       background: var(--green);
-      box-shadow: 0 0 16px rgba(34,197,94,.35);
+      box-shadow:0 0 18px rgba(34,197,94,.55);
     }
-    .chipIcon{
+    .chip{
       width:18px;height:18px;border-radius:999px;
       display:inline-flex; align-items:center; justify-content:center;
-      background: rgba(11,18,32,.06);
-      border:1px solid rgba(11,18,32,.10);
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
       font-size:12px;
     }
-    .emailLink{
-      color: var(--text);
-      font-weight:900;
-      text-decoration:none;
-    }
-    .emailLink:hover{text-decoration:underline}
-    @media (max-width: 860px){
-      .sep{display:none}
+    .emailLink{color:var(--text); font-weight:950}
+
+    @media (max-width: 900px){
       header{flex-direction:column; align-items:flex-start}
-      .trust{justify-content:flex-start}
+      .sep{display:none}
       .tItem{white-space:normal}
     }
 
-    /* Hero */
-    .hero{
-      border-radius: var(--r);
-      background: var(--surface);
+    /* Cards */
+    .card{
       border:1px solid var(--border);
+      border-radius: var(--r);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
       overflow:hidden;
       position:relative;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
     }
-    .hero::before{
+    .card.glow::after{
       content:"";
       position:absolute;
       inset:-2px;
-      background:
-        radial-gradient(900px 420px at 25% 10%, rgba(34,197,94,.20), transparent 55%),
-        radial-gradient(900px 420px at 80% 0%, rgba(56,189,248,.22), transparent 55%);
-      opacity:.9;
-      pointer-events:none;
+      border-radius: var(--r);
+      background: linear-gradient(135deg, rgba(34,197,94,.28), rgba(56,189,248,.28), rgba(29,78,216,.18));
+      filter: blur(18px);
+      opacity:.55;
+      z-index:-1;
     }
-    .heroInner{
-      position:relative;
-      padding: 26px;
+    .pad{padding:20px}
+
+    /* Hero */
+    .hero{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1.1fr .9fr;
       gap:18px;
       align-items:stretch;
+      padding: 6px 0 6px;
     }
-    @media (max-width: 980px){
-      .heroInner{grid-template-columns:1fr}
-    }
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr} }
 
     .headline{
-      margin:0;
-      font-size:48px;
-      line-height:1.03;
+      margin:0 0 10px;
+      font-size:46px;
+      line-height:1.02;
       letter-spacing:-.8px;
     }
     @media (max-width: 520px){ .headline{font-size:34px} }
 
     .sub{
-      margin:12px 0 0;
+      margin:0 0 14px;
       color:var(--muted);
       font-size:15px;
-      max-width: 60ch;
+      max-width: 64ch;
     }
 
-    .highlightRow{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:16px;
-    }
+    .industryRow{display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 6px}
     .pill{
       display:inline-flex; align-items:center; gap:10px;
       padding:10px 12px;
       border-radius:999px;
-      background: rgba(255,255,255,.70);
-      border:1px solid rgba(11,18,32,.10);
-      box-shadow: 0 8px 18px rgba(11,18,32,.06);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.12);
+      color: var(--muted);
       font-size:13px;
-      font-weight:800;
-      color: rgba(11,18,32,.78);
+      font-weight:950;
     }
     .pill i{
       width:10px;height:10px;border-radius:999px;
-      background: var(--blue);
-      box-shadow: 0 0 14px rgba(56,189,248,.35);
       display:inline-block;
+      background: var(--blue);
+      box-shadow: 0 0 16px rgba(56,189,248,.45);
     }
-    .pill.green i{background: var(--green); box-shadow: 0 0 14px rgba(34,197,94,.35)}
-    .pill.deep i{background: var(--deep); box-shadow: 0 0 14px rgba(29,78,216,.30)}
+    .pill.green i{background: var(--green); box-shadow: 0 0 16px rgba(34,197,94,.45)}
+    .pill.deep i{background: var(--deep); box-shadow: 0 0 16px rgba(29,78,216,.40)}
 
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
     .btn{
       border:none;
       border-radius: 14px;
@@ -186,196 +186,200 @@
       font-weight:950;
       cursor:pointer;
       display:inline-flex; align-items:center; gap:10px;
-      transition: transform .08s ease, opacity .08s ease;
-      user-select:none;
-      font-size:14px;
       letter-spacing:.2px;
-      text-decoration:none;
+      user-select:none;
     }
-    .btn:active{transform: translateY(1px)}
     .btn.primary{
-      color:white;
+      color:#061019;
       background: linear-gradient(135deg, var(--green), var(--blue));
-      box-shadow: 0 16px 40px rgba(34,197,94,.18);
+      box-shadow: 0 18px 40px rgba(34,197,94,.12);
     }
     .btn.ghost{
-      background: rgba(255,255,255,.70);
-      border:1px solid rgba(11,18,32,.12);
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
       color: var(--text);
     }
 
-    /* Right-side form card */
-    .panel{
+    .tiles{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      padding: 0 20px 20px;
+    }
+    @media (max-width: 980px){ .tiles{grid-template-columns:1fr} }
+    .tile{
+      border:1px solid rgba(255,255,255,.12);
       border-radius: var(--r2);
-      background: rgba(255,255,255,.86);
-      border:1px solid rgba(11,18,32,.10);
-      box-shadow: 0 18px 50px rgba(11,18,32,.10);
-      overflow:hidden;
+      background: rgba(0,0,0,.10);
+      padding:14px;
     }
-    .panelHead{
-      padding:16px 16px 10px;
-      border-bottom:1px solid rgba(11,18,32,.08);
-      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
-    }
-    .panelHead h2{margin:0; font-size:16px; letter-spacing:.2px}
-    .panelHead p{margin:6px 0 0; font-size:12px; color:var(--muted)}
-    .panelBody{padding:16px}
-
-    label{
-      font-weight:900;
-      font-size:12px;
-      color: rgba(11,18,32,.62);
-      display:block;
-      margin: 10px 0 6px;
-    }
-    input, select, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(11,18,32,.12);
-      background: rgba(255,255,255,.92);
-      color: var(--text);
-      font-size:14px;
-      outline:none;
-    }
-    input:focus, select:focus, textarea:focus{
-      border-color: rgba(56,189,248,.55);
-      box-shadow: 0 0 0 4px rgba(56,189,248,.16);
-    }
-    textarea{min-height:110px; resize: vertical}
-    .two{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-    @media (max-width: 520px){ .two{grid-template-columns:1fr} }
-
-    .formFooter{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px; flex-wrap:wrap;
-      margin-top: 12px;
-    }
-    .fine{color:var(--muted); font-size:12px; margin:0}
-
-    .status{
-      display:none;
-      margin-top:12px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.75);
-      font-size:13px;
-      font-weight:950;
-    }
-    .status.ok{display:block; border-color:rgba(34,197,94,.35); color:#0b1220}
-    .status.err{display:block; border-color:rgba(239,68,68,.35); color:#0b1220}
+    .tile b{display:block; margin:0 0 6px; letter-spacing:.2px}
+    .tile p{margin:0; color:var(--muted); font-size:13px}
 
     /* Sections */
-    .section{
-      margin-top:26px;
-      border-radius: var(--r);
-      background: rgba(255,255,255,.70);
-      border:1px solid rgba(11,18,32,.10);
-      box-shadow: 0 16px 50px rgba(11,18,32,.08);
-      backdrop-filter: blur(12px);
-      overflow:hidden;
-    }
-    .sectionHeader{
-      padding:16px 18px;
-      border-bottom:1px solid rgba(11,18,32,.08);
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
-    }
-    .sectionHeader b{font-size:14px; letter-spacing:.25px}
-    .sectionHeader span{color:var(--muted); font-size:12px}
-
-    .sectionBody{padding:18px}
+    .sectionTitle{margin:24px 0 10px; font-size:16px; letter-spacing:.25px}
     .grid3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:12px;
     }
-    @media (max-width: 920px){ .grid3{grid-template-columns:1fr} }
-
-    .cardMini{
-      border-radius: 16px;
-      border:1px solid rgba(11,18,32,.10);
-      background: rgba(255,255,255,.86);
-      box-shadow: 0 10px 26px rgba(11,18,32,.06);
+    @media (max-width: 980px){ .grid3{grid-template-columns:1fr} }
+    .box{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--r2);
+      background: rgba(0,0,0,.10);
       padding:14px;
     }
-    .cardMini b{display:block; margin-bottom:6px}
-    .cardMini p{margin:0; font-size:13px; color:var(--muted)}
+    .box b{display:block; margin:0 0 6px}
+    .box p{margin:0; color:var(--muted); font-size:13px}
 
-    /* Demo portfolio */
-    .portfolioGrid{
+    /* Demo cards with images */
+    .portfolio{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:12px;
     }
-    @media (max-width: 980px){ .portfolioGrid{grid-template-columns:1fr} }
+    @media (max-width: 980px){ .portfolio{grid-template-columns:1fr} }
 
     .demo{
-      position:relative;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--r);
       overflow:hidden;
-      border-radius: 18px;
-      border:1px solid rgba(11,18,32,.10);
-      background: linear-gradient(135deg, rgba(34,197,94,.18), rgba(56,189,248,.18));
-      box-shadow: 0 14px 40px rgba(11,18,32,.08);
-      padding: 16px;
+      position:relative;
+      padding:16px;
     }
-    .demo::after{
+    .demo::before{
       content:"";
       position:absolute;
-      inset:-40px;
-      background: radial-gradient(380px 220px at 20% 10%, rgba(255,255,255,.65), transparent 60%);
-      transform: rotate(-8deg);
-      opacity:.65;
-      pointer-events:none;
+      inset:0;
+      background-size:cover;
+      background-position:center var(--demo-pos, 50%);	
+
+	  /* overlay + image */
+      background-image:
+        linear-gradient(rgba(7,11,20,.55), rgba(7,11,20,.92)),
+        var(--demo-bg),
+        radial-gradient(600px 200px at 20% 0%, rgba(34,197,94,.14), transparent 65%),
+        radial-gradient(600px 200px at 80% 0%, rgba(56,189,248,.14), transparent 65%);
+      z-index:0;
     }
-    .demoInner{position:relative}
+    .demo > *{position:relative; z-index:1}
+
     .demoTop{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
       margin-bottom:10px;
-    }
-    .dots{
-      display:flex; gap:6px; align-items:center;
-    }
-    .dots span{
-      width:9px;height:9px;border-radius:999px;
-      background: rgba(11,18,32,.16);
     }
     .demoTag{
       font-size:12px;
       font-weight:950;
       padding:6px 10px;
       border-radius:999px;
-      background: rgba(255,255,255,.75);
-      border:1px solid rgba(11,18,32,.10);
-      color: rgba(11,18,32,.76);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
       white-space:nowrap;
     }
+    .dots{display:flex; gap:6px; align-items:center}
+    .dots span{width:9px;height:9px;border-radius:999px;background: rgba(255,255,255,.20)}
     .demo h3{margin:0 0 6px; font-size:16px}
-    .demo p{margin:0 0 12px; color:rgba(11,18,32,.68); font-size:13px}
-    .demoActions{display:flex; gap:10px; flex-wrap:wrap}
-    .miniBtn{
+    .demo p{margin:0 0 12px; color:var(--muted); font-size:13px}
+    .demo a{
       display:inline-flex; align-items:center; gap:8px;
-      font-size:13px;
-      font-weight:950;
       padding:10px 12px;
       border-radius:12px;
-      border:1px solid rgba(11,18,32,.12);
-      background: rgba(255,255,255,.78);
-      text-decoration:none;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.10);
+      font-size:13px;
+      font-weight:950;
     }
 
-    /* FAQ */
-    .faq details{border-top:1px solid rgba(11,18,32,.08); padding:12px 0}
-    .faq details:first-child{border-top:none}
-    summary{
-      cursor:pointer;
-      font-weight:950;
-      color: rgba(11,18,32,.92);
-      list-style:none;
+    /* Pricing */
+    .pricing{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
     }
-    summary::-webkit-details-marker{display:none}
-    .faq p{margin:8px 0 0; color:var(--muted); font-size:13px}
+    @media (max-width: 980px){ .pricing{grid-template-columns:1fr} }
+
+    .priceCard{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--r);
+      background: rgba(0,0,0,.10);
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .priceCard.featured{
+      border-color: rgba(34,197,94,.35);
+      box-shadow: 0 18px 60px rgba(34,197,94,.10);
+    }
+    .priceCard .label{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; font-weight:950;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      margin-bottom:10px;
+    }
+    .priceCard h3{margin:0 0 6px}
+    .price{
+      font-size:28px;
+      font-weight:1000;
+      letter-spacing:-.4px;
+      margin:0 0 10px;
+    }
+    .price small{font-size:12px; color:var(--muted); font-weight:800}
+    .list{margin:0; padding-left:18px; color:var(--muted); font-size:13px}
+    .list li{margin:6px 0}
+    .note{color:var(--muted); font-size:12px; margin:10px 0 0}
+
+    /* Form */
+    form{display:grid; gap:12px; margin-top:12px}
+    label{
+      font-weight:950;
+      font-size:12px;
+      color:var(--muted);
+      display:block;
+      margin:0 0 6px;
+    }
+    input, select, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.14);
+      color: var(--text);
+      font-size:15px;
+      outline:none;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(56,189,248,.55);
+      box-shadow: 0 0 0 4px rgba(56,189,248,.12);
+    }
+    textarea{min-height:120px; resize: vertical}
+    .two{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media (max-width: 520px){ .two{grid-template-columns:1fr} }
+
+    .formFooter{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px; flex-wrap:wrap;
+      margin-top: 2px;
+    }
+    .fine{color:var(--muted); font-size:12px; margin:0}
+
+    .status{
+      display:none;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.10);
+      font-size:13px;
+      font-weight:950;
+    }
+    .status.ok{display:block; border-color:rgba(34,197,94,.35); color:#b8ffd1}
+    .status.err{display:block; border-color:rgba(251,113,133,.45); color:#ffd1da}
 
     footer{
       padding: 26px 0 40px;
@@ -388,253 +392,247 @@
 
 <body>
   <div class="wrap">
-
     <header>
       <div class="brand">
         <div class="mark" aria-hidden="true"></div>
-        <div class="brandTitle">
+        <div class="brandText">
           <b>Jessop Web Design</b>
-          <span>Modern websites for small businesses.</span>
+          <span>Clean websites for service businesses and small brands.</span>
         </div>
       </div>
 
-      <div class="trust">
-        <span class="tItem"><span class="dot"></span><span style="color:rgba(11,18,32,.86)">Taking new builds</span></span>
+      <div class="trust" aria-label="Business info">
+        <span class="tItem"><span class="dot"></span><span style="color:var(--text)">Taking new builds</span></span>
         <span class="sep">•</span>
-        <span class="tItem"><span class="chipIcon">🌎</span>Serving clients across the U.S.</span>
+        <span class="tItem"><span class="chip">🌎</span>U.S.-based • local & nationwide</span>
         <span class="sep">•</span>
-        <span class="tItem"><span class="chipIcon">⏱</span>Replies within <span style="color:rgba(11,18,32,.86)">24–48 hrs</span></span>
+        <span class="tItem"><span class="chip">⏱</span>Replies within <span style="color:var(--text)">24–48 hrs</span></span>
         <span class="sep">•</span>
-        <span class="tItem"><span class="chipIcon">✉️</span><a class="emailLink" href="mailto:kjessopbtc@gmail.com">kjessopbtc@gmail.com</a></span>
+        <span class="tItem"><span class="chip">✉️</span><a class="emailLink" href="mailto:kjessopbtc@gmail.com">kjessopbtc@gmail.com</a></span>
       </div>
     </header>
 
-    <section class="hero" id="top">
-      <div class="heroInner">
-        <!-- LEFT -->
-        <div>
-          <h1 class="headline">A clean, modern website your customers will trust.</h1>
+    <section class="hero">
+      <!-- Left -->
+      <div class="card glow">
+        <div class="pad">
+          <h1 class="headline">Websites that make your business look legit — anywhere.</h1>
           <p class="sub">
-            I build fast, mobile-friendly websites for small businesses across the United States.
-            Clear layout, modern design, and an easy way for people to contact you.
+            I build clean, fast, mobile-friendly websites for service businesses and small brands.
+            Construction, landscaping, barbershops, trades, auto detailing, restaurants, and more.
+            If you want a professional site that’s easy to use and easy to contact you from, send a request.
           </p>
 
-          <div class="highlightRow">
-            <div class="pill green"><i></i> Mobile-first layout</div>
-            <div class="pill"><i></i> Clean, modern design</div>
+          <div class="industryRow" aria-label="Highlights">
+            <div class="pill green"><i></i> Looks great on phones</div>
+            <div class="pill"><i></i> Clear services + contact</div>
             <div class="pill deep"><i></i> Fast load speed</div>
           </div>
 
           <div class="ctaRow">
-            <a class="btn primary" href="#request">Request a website →</a>
-            <a class="btn ghost" href="mailto:kjessopbtc@gmail.com?subject=Website%20Build%20Request">Email me</a>
-          </div>
-
-          <div style="margin-top:18px; color:var(--muted); font-size:12px;">
-            Want to talk first? Email me with <strong>“Website Build”</strong> in the subject.
+            <a class="btn primary" href="#pricing">See pricing →</a>
+            <a class="btn ghost" href="#request">Start a request →</a>
           </div>
         </div>
 
-        <!-- RIGHT: FORM PANEL -->
-        <div class="panel" id="request">
-          <div class="panelHead">
-            <h2>Request a Website</h2>
-            <p>Send the basics. I’ll respond within 24–48 hours.</p>
-          </div>
-
-          <div class="panelBody">
-            <form id="quoteForm" action="https://formspree.io/f/xojnqpoq" method="POST">
-              <div class="two">
-                <div>
-                  <label for="name">Name</label>
-                  <input id="name" name="name" type="text" placeholder="Your name" required />
-                </div>
-                <div>
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" placeholder="your@email.com" required />
-                </div>
-              </div>
-
-              <div class="two">
-                <div>
-                  <label for="type">Project type</label>
-                  <select id="type" name="project_type" required>
-                    <option value="">Select one</option>
-                    <option>One-page landing page</option>
-                    <option>Business website (3–5 pages)</option>
-                    <option>Redesign / cleanup</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="timeline">Timeline</label>
-                  <select id="timeline" name="timeline">
-                    <option value="">Select one</option>
-                    <option>ASAP</option>
-                    <option>1–2 weeks</option>
-                    <option>2–4 weeks</option>
-                    <option>Flexible</option>
-                  </select>
-                </div>
-              </div>
-
-              <label for="details">Project details</label>
-              <textarea id="details" name="details" placeholder="What should the site do? Any example sites you like? Pages needed?" required></textarea>
-
-              <!-- anti-bot -->
-              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-
-              <button class="btn primary" type="submit" id="submitBtn" style="width:100%; justify-content:center;">
-                Send request →
-              </button>
-
-              <div class="formFooter">
-                <p class="fine">You’ll get a reply by email. No spam.</p>
-              </div>
-
-              <div id="formStatus" class="status" aria-live="polite"></div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORTFOLIO / DEMOS -->
-    <section class="section" id="work">
-      <div class="sectionHeader">
-        <b>Demo work</b>
-        <span>Examples of the style I build</span>
-      </div>
-      <div class="sectionBody">
-        <div class="portfolioGrid">
-          <div class="demo">
-            <div class="demoInner">
-              <div class="demoTop">
-                <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                <div class="demoTag">Local service</div>
-              </div>
-              <h3>Mountain Home Services</h3>
-              <p>Clean homepage, service sections, reviews, and a simple contact form.</p>
-              <div class="demoActions">
-                <a class="miniBtn" href="#request">Request similar →</a>
-                <a class="miniBtn" href="mailto:kjessopbtc@gmail.com?subject=Website%20Build%20Request">Ask a question</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="demo">
-            <div class="demoInner">
-              <div class="demoTop">
-                <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                <div class="demoTag">Restaurant</div>
-              </div>
-              <h3>Modern Café</h3>
-              <p>Menu + hours + location, with a layout that looks great on phones.</p>
-              <div class="demoActions">
-                <a class="miniBtn" href="#request">Request similar →</a>
-                <a class="miniBtn" href="mailto:kjessopbtc@gmail.com?subject=Website%20Build%20Request">Ask a question</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="demo">
-            <div class="demoInner">
-              <div class="demoTop">
-                <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
-                <div class="demoTag">Creative</div>
-              </div>
-              <h3>Portfolio / Personal Brand</h3>
-              <p>Simple, modern portfolio layout with a strong call-to-action.</p>
-              <div class="demoActions">
-                <a class="miniBtn" href="#request">Request similar →</a>
-                <a class="miniBtn" href="mailto:kjessopbtc@gmail.com?subject=Website%20Build%20Request">Ask a question</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="section" id="services">
-      <div class="sectionHeader">
-        <b>Services</b>
-        <span>Simple options that cover most businesses</span>
-      </div>
-      <div class="sectionBody">
-        <div class="grid3">
-          <div class="cardMini">
+        <div class="tiles">
+          <div class="tile">
             <b>Starter site</b>
-            <p>One-page landing + contact form. Great for getting online fast.</p>
+            <p>One-page landing + contact form. Perfect to get online fast.</p>
           </div>
-          <div class="cardMini">
+          <div class="tile">
             <b>Business site</b>
-            <p>3–5 pages (Home, Services, About, Contact). Built for trust.</p>
+            <p>3–5 pages: Home, Services, About, Contact. Built for trust.</p>
           </div>
-          <div class="cardMini">
-            <b>Redesign / cleanup</b>
-            <p>Modernize an old site, fix mobile layout, and improve clarity.</p>
+          <div class="tile">
+            <b>Versatile</b>
+            <p>Local service businesses, online brands, and everything in between.</p>
           </div>
+          <div class="tile">
+            <b>Simple process</b>
+            <p>You request → I quote → I build → you approve → we launch.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right (Contact form) -->
+      <div class="card" id="request">
+        <div class="pad">
+          <h2 style="margin:0 0 6px; font-size:18px; letter-spacing:.2px;">Request a Website</h2>
+          <p style="margin:0; color:var(--muted); font-size:13px;">
+            Send the basics. I’ll respond within 24–48 hours.
+          </p>
+
+          <form id="quoteForm" action="https://formspree.io/f/xojnpodq" method="POST">
+            <div class="two">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+
+            <div class="two">
+              <div>
+                <label for="business">Business / brand (optional)</label>
+                <input id="business" name="business" type="text" placeholder="Business name" />
+              </div>
+              <div>
+                <label for="phone">Phone (optional)</label>
+                <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
+              </div>
+            </div>
+
+            <div class="two">
+              <div>
+                <label for="industry">Industry</label>
+                <select id="industry" name="industry" required>
+                  <option value="">Select one</option>
+                  <option>Construction / contractor</option>
+                  <option>Landscaping / outdoor services</option>
+                  <option>Barbershop / salon</option>
+                  <option>Auto / detailing</option>
+                  <option>Trades (HVAC, electric, plumbing, etc.)</option>
+                  <option>Restaurant / café</option>
+                  <option>Online brand / creator</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="type">Website type</label>
+                <select id="type" name="project_type" required>
+                  <option value="">Select one</option>
+                  <option>One-page starter site</option>
+                  <option>Business website (3–5 pages)</option>
+                  <option>Redesign / cleanup</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="details">Project details</label>
+              <textarea id="details" name="details" placeholder="What should the site include? Services, photos, examples you like, etc." required></textarea>
+            </div>
+
+            <!-- anti-bot -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="formFooter">
+              <button class="btn primary" type="submit" id="submitBtn">Send request →</button>
+              <p class="fine">You’ll get a reply by email. No spam.</p>
+            </div>
+
+            <div id="formStatus" class="status" aria-live="polite"></div>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- PROCESS -->
-    <section class="section" id="process">
-      <div class="sectionHeader">
-        <b>How it works</b>
-        <span>Clear steps, no confusion</span>
-      </div>
-      <div class="sectionBody">
-        <div class="grid3">
-          <div class="cardMini">
-            <b>1) Request</b>
-            <p>You send what you need using the form.</p>
-          </div>
-          <div class="cardMini">
-            <b>2) Quote</b>
-            <p>I reply with pricing + timeline + what I need from you.</p>
-          </div>
-          <div class="cardMini">
-            <b>3) Build & launch</b>
-            <p>I build, you approve, then we launch your site.</p>
-          </div>
+    <h3 class="sectionTitle">Demo layouts</h3>
+    <div class="portfolio">
+      <div class="demo" style="--demo-bg: url('contractor.jpg'); --demo-pos:60%;">
+        <div class="demoTop">
+          <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="demoTag">Contractor</div>
         </div>
+        <h3>Summit Contracting</h3>
+        <p>Services, gallery, reviews, and a strong “Request a Quote” section.</p>
+        <a href="#request">Request a similar site →</a>
       </div>
-    </section>
 
-    <!-- FAQ -->
-    <section class="section faq" id="faq">
-      <div class="sectionHeader">
-        <b>FAQ</b>
-        <span>Quick answers</span>
+      <div class="demo" style="--demo-bg: url('barber.jpg'); --demo-pos:30%;">
+        <div class="demoTop">
+          <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="demoTag">Barbershop</div>
+        </div>
+        <h3>Riverside Barber Co.</h3>
+        <p>Hours, location, services, and a clean booking call-to-action.</p>
+        <a href="#request">Request a similar site →</a>
       </div>
-      <div class="sectionBody">
-        <details open>
-          <summary>Where do form messages go?</summary>
-          <p>Form submissions are handled by Formspree and delivered to my email: <strong>kjessopbtc@gmail.com</strong>.</p>
-        </details>
-        <details>
-          <summary>How long does a website take?</summary>
-          <p>It depends on the number of pages and how quickly you can send your info. Most builds move quickly once I have what I need.</p>
-        </details>
-        <details>
-          <summary>What do you need from me?</summary>
-          <p>Business name, services, any photos/logo, and any example sites you like. If you don’t have content yet, we can still start.</p>
-        </details>
+
+      <div class="demo" style="--demo-bg: url('brand.jpg'); --demo-pos:70%;">
+        <div class="demoTop">
+          <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="demoTag">Online brand</div>
+        </div>
+        <h3>Modern Brand Landing</h3>
+        <p>Simple hero, product/service highlights, and conversion-focused layout.</p>
+        <a href="#request">Request a similar site →</a>
       </div>
-    </section>
+    </div>
+
+    <h3 class="sectionTitle" id="pricing">Pricing (affordable)</h3>
+    <div class="pricing">
+      <div class="priceCard">
+        <div class="label"><span class="chip">💡</span>Starter</div>
+        <h3>One-page site</h3>
+        <p class="price">$149–$249 <small>starting range</small></p>
+        <ul class="list">
+          <li>Clean one-page layout</li>
+          <li>Contact form</li>
+          <li>Mobile-friendly</li>
+          <li>Fast load + modern look</li>
+        </ul>
+        <p class="note">Best for getting online fast.</p>
+      </div>
+
+      <div class="priceCard featured">
+        <div class="label"><span class="chip">🔥</span>Most Popular</div>
+        <h3>Business site (3–5 pages)</h3>
+        <p class="price">$299–$499 <small>starting range</small></p>
+        <ul class="list">
+          <li>Home, Services, About, Contact</li>
+          <li>Gallery/Reviews section</li>
+          <li>Clear call-to-action</li>
+          <li>Built for trust + conversions</li>
+        </ul>
+        <p class="note">Perfect for contractors, trades, shops.</p>
+      </div>
+
+      <div class="priceCard">
+        <div class="label"><span class="chip">🧼</span>Refresh</div>
+        <h3>Redesign / cleanup</h3>
+        <p class="price">$199–$399 <small>starting range</small></p>
+        <ul class="list">
+          <li>Modernize your existing site</li>
+          <li>Improve layout + readability</li>
+          <li>Speed and mobile improvements</li>
+          <li>Fix broken sections</li>
+        </ul>
+        <p class="note">Great if you already have a site but it’s dated.</p>
+      </div>
+    </div>
+
+    <h3 class="sectionTitle">What you get</h3>
+    <div class="grid3">
+      <div class="box">
+        <b>Clear structure</b>
+        <p>People instantly understand what you do and how to contact you.</p>
+      </div>
+      <div class="box">
+        <b>Mobile-friendly</b>
+        <p>Built to look right and work fast on phones, tablets, and desktops.</p>
+      </div>
+      <div class="box">
+        <b>Professional finish</b>
+        <p>Clean layout, modern style, and a site that builds trust.</p>
+      </div>
+    </div>
 
     <footer>
       © <span id="year"></span> Jessop Web Design • United States •
       <a href="mailto:kjessopbtc@gmail.com?subject=Website%20Build%20Request">kjessopbtc@gmail.com</a>
     </footer>
-
   </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // AJAX submit (no redirect)
     const form = document.getElementById("quoteForm");
     const statusEl = document.getElementById("formStatus");
     const submitBtn = document.getElementById("submitBtn");
