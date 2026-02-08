@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://jessopwebdesign.com" />
 
   <!-- Favicon (keep favicon.png in repo root) -->
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <style>
     :root{
@@ -45,7 +45,6 @@
       color:var(--text);
       line-height:1.55;
 
-      /* No required images on the page background */
       background:
         radial-gradient(900px 600px at 14% 10%, rgba(34,197,94,.16), transparent 55%),
         radial-gradient(900px 600px at 90% 18%, rgba(56,189,248,.16), transparent 55%),
@@ -247,15 +246,14 @@
       overflow:hidden;
       position:relative;
       padding:16px;
+      min-height: 180px; /* helps the background show nicely */
     }
     .demo::before{
       content:"";
       position:absolute;
       inset:0;
       background-size:cover;
-      background-position:center var(--demo-pos, 50%);	
-
-	  /* overlay + image */
+      background-position:center var(--demo-pos, 50%);
       background-image:
         linear-gradient(rgba(7,11,20,.55), rgba(7,11,20,.92)),
         var(--demo-bg),
@@ -404,7 +402,7 @@
       <div class="trust" aria-label="Business info">
         <span class="tItem"><span class="dot"></span><span style="color:var(--text)">Taking new builds</span></span>
         <span class="sep">•</span>
-        <span class="tItem"><span class="chip">🌎</span>U.S.-based • local & nationwide</span>
+        <span class="tItem"><span class="chip">🌎</span>U.S.-based • local &amp; nationwide</span>
         <span class="sep">•</span>
         <span class="tItem"><span class="chip">⏱</span>Replies within <span style="color:var(--text)">24–48 hrs</span></span>
         <span class="sep">•</span>
@@ -417,6 +415,7 @@
       <div class="card glow">
         <div class="pad">
           <h1 class="headline">Websites built to help real businesses grow</h1>
+
           <p class="sub">
             I build clean, fast, mobile-friendly websites for service businesses and small brands.
             Construction, landscaping, barbershops, trades, auto detailing, restaurants, and more.
@@ -424,9 +423,9 @@
           </p>
 
           <div class="industryRow" aria-label="Highlights">
-            <div class="pill green"><i></i> Looks great on phones</div>
-            <div class="pill"><i></i> Clear services + contact</div>
-            <div class="pill deep"><i></i> Fast load speed</div>
+            <div class="pill green"><i aria-hidden="true"></i> Looks great on phones</div>
+            <div class="pill"><i aria-hidden="true"></i> Clear services + contact</div>
+            <div class="pill deep"><i aria-hidden="true"></i> Fast load speed</div>
           </div>
 
           <div class="ctaRow">
